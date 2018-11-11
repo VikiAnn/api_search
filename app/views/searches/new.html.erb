@@ -1,5 +1,21 @@
-<%= form_for :search, url: searches_path do |f| %>
-  <%= f.label :term, "Search" %>
-  <%= f.text_field :term %><span><%= @search&.errors&.full_messages_for(:term)&.first %></span>
-  <%= f.submit "Go" %>
-<% end %>
+<div class="sidebar">
+  <table>
+    <tr>
+      <th>Count</th>
+      <th>Search</th>
+    </tr>
+    <% searches_with_counts.each do |term, count| %>
+      <tr>
+        <td><%= count %></td>
+        <td><%= button_to term, searches_path(search: { term: term }) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="form">
+  <%= form_for :search, url: searches_path do |f| %>
+    <%= @search&.errors&.full_messages_for(:term)&.first %>
+    <%= f.text_field :term %>
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
