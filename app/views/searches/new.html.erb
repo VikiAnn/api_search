@@ -1,0 +1,5 @@
+<%= form_for :search, url: searches_path do |f| %>
+  <%= f.label :term, "Search" %>
+  <%= f.text_field :term %><span><%= @search&.errors&.full_messages_for(:term)&.first %></span>
+  <%= f.submit "Go" %>
+<% end %>
