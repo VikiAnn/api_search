@@ -12,7 +12,7 @@
     <% end %>
   </table>
 </div>
-<div class="form">
+<div class="content">
   <%= form_for :search, url: searches_path do |f| %>
     <%= @search&.errors&.full_messages_for(:term)&.first %>
     <%= f.text_field :term %>

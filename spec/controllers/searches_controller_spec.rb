@@ -40,4 +40,18 @@ RSpec.describe SearchesController, type: :controller do
       end
     end
   end
+
+  describe '#show' do
+    before { get 'show', params: {term: "elephants"} }
+
+    let(:search) { Search.create(term: "elephants") }
+
+    it 'returns status 200' do
+      expect(response).to have_http_status 200
+    end
+
+    it 'renders show' do
+      expect(response).to render_template :show
+    end
+  end
 end

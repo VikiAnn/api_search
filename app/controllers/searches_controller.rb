@@ -1,10 +1,14 @@
 class SearchesController < ApplicationController
+  def show
+    @search = Search.find_by(term: params[:term])
+  end
+
   def new; end
 
   def create
     @search = Search.new(search_params)
     if @search.save
-      redirect_to root_path
+      redirect_to search_path(term: @search.term)
     else
       render :new
     end

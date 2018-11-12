@@ -30,7 +30,7 @@ body {
   padding: 1em;
 }
 
-.form {
+.content {
   -webkit-flex: 5;
   flex: 5;
   padding: 1em;
