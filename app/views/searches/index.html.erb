@@ -1,0 +1,17 @@
+<div class="content">
+  <table>
+    <tr>
+      <th><%= link_to_sort "search_count", "Count" %></th>
+      <th><%= link_to_sort "term" %></th>
+      <th><%= link_to_sort "latest_date", "Date" %></th>
+    </tr>
+    <% @searches.each do |search| %>
+      <tr>
+        <td><%= search.search_count %></td>
+        <td><%= button_to search.term, searches_path(search: { term: search.term }) %></td>
+        <td><%= search.date %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

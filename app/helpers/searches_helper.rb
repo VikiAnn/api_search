@@ -8,4 +8,10 @@ module SearchesHelper
       date.strftime('%B %e, %Y %l:%M %P')
     end
   end
+
+  def link_to_sort(field, title=nil)
+    title ||= field.titleize
+    direction = field == sort_field && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, {field: field, direction: direction}
+  end
 end

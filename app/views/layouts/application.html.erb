@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path unless request.path == root_path %>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>

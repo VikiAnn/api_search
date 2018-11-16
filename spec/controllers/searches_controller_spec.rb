@@ -54,4 +54,15 @@ RSpec.describe SearchesController, type: :controller do
       expect(response).to render_template :show
     end
   end
+
+  describe '#index' do
+    before { get :index }
+    it 'returns 200' do
+      expect(response).to have_http_status 200
+    end
+
+    it 'renders index' do
+      expect(response).to render_template :index
+    end
+  end
 end
