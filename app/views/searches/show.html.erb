@@ -11,6 +11,24 @@
   </table>
 </div>
 <div class="content">
-  <h1><%= @search.term %></h1>
+  <h1>Searched for: <%= @search.term %></h1>
+  <h2>Goodreads Book Results</h2>
+  <table>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>author</th>
+      <th>ratings</th>
+      <th>average rating</th>
+    </tr>
+    <% @search.results.each do |result| %>
+      <tr>
+        <td><%= image_tag result.image_url, alt: "#{result.title} cover" %></td>
+        <td><%= result.title %></td>
+        <td><%= result.author %></td>
+        <td><%= result.ratings %></td>
+        <td><%= result.average_rating %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
-
