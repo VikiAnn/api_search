@@ -17,7 +17,7 @@
 html {
   height: 100%;
 }
-body {
+.flex-container {
   display: -webkit-flex;
   display: flex;
   height: 100%;

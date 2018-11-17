@@ -9,10 +9,12 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path unless request.path == root_path %>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-    <%= yield %>
+    <%= link_to *navigation %>
+    <div class="flex-container">
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name %>
+      <% end -%>
+      <%= yield %>
+    </div>
   </body>
 </html>
